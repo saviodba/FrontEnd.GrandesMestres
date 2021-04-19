@@ -1,10 +1,30 @@
 const express = require('express');
-const ejs = require('ejs');
+const path = require('path');
+const bodyParser = require('body-parser');
 
-let app = express();
+const app = express();
+
+let dir = path.join(__dirname, '/src/');
+
+app.use(express.static(dir + "/public"));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.set('view engine', 'ejs');
+app.set("views", "./src/views");
 
 app.get("/", (req, res) => {
-    res.send("Olá, mundooo...")
+    res.render("index");
+});
+
+app.get("/Cadastro", (req, res) => {
+    res.render("pages/cad-artigo");
+});
+
+app.post("/Cadastro", (req, res) => {
+    console.log(req.body);
+
+    res.render("pages/cad-artigo");
 });
 
 app.listen(4000);
