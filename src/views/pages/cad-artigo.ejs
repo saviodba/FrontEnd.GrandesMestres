@@ -1,25 +1,20 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<form action="/Cadastro" method="POST" id="cadastro-gmestre">
 
-<head>
-    <%- include('../partials/head'); %>
-</head>
+    <div class="campos">
+        <label>Mestre</label>
+        <input class="campo" type="text" name="txtNome" placeholder="Digite o nome...">
+    </div>
 
-<body>
-    <header>
-        <%- include('../partials/header'); %>
-    </header>
-
-    <form action="/Cadastro" method="POST">
-        <input type="text" name="txtNome" placeholder="Digite o nome...">
+    <div class="campos">
+        <label>Selecione uma imagem</label>
         <input type="file" name="fsImg">
-        <textarea name="txtDescricao"></textarea>
-        <button type="submit">Salvar</button>
-    </form>
+    </div>
 
-    <footer>
-        <%- include('../partials/footer'); %>
-    </footer>
-</body>
+    <div class="campos">
+        <label>Texto artigo</label>
+        <textarea class="campo" name="txtDescricao"></textarea>
+    </div>
 
-</html>
+    <button class="botao" type="submit">Salvar</button>
+
+</form>
